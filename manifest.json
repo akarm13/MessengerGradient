@@ -1,0 +1,18 @@
+  {
+    "name": "Chat Gradient",
+    "version": "1.0.0",
+    "description": "Change Facebook chat colors to use gradients instead of normal boring colors!",
+    "manifest_version": 2,
+    "browser_action": {
+      "default_icon": "icons/icon.png",
+      "default_popup": "index.html"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "css": ["styles.css"],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+      }
+    ]
+  }

@@ -1,0 +1,19 @@
+div[message][body][data-tooltip-position="right"] {
+    background: #0052D4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #6FB1FC, #4364F7, #0052D4);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #6FB1FC, #4364F7, #0052D4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    
+        color: #333;
+        font-size: 15px;
+    }
+    
+    div[message][body][data-tooltip-position="left"] {
+    background: #ff3dfb;
+    background: -moz-linear-gradient(-45deg, #ff3dfb 0%, #d140c0 92%);
+    background: -webkit-linear-gradient(-45deg, #ff3dfb 0%,#d140c0 92%);
+    background: linear-gradient(135deg, #ff3dfb 0%,#d140c0 92%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3dfb', endColorstr='#d140c0',GradientType=1 );
+        color:white;
+        
+    }
