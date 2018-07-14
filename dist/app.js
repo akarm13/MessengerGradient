@@ -24,11 +24,11 @@ if ( senderColor === null &&
 var customStyles = document.createElement('style');
 customStyles.innerHTML = `
     div[message][body][data-tooltip-position="left"] {
-        background: linear-gradient(135deg, ${receiverColor} 0%, ${shadeColor(receiverColor, -0.3)});
+        background: linear-gradient(135deg, ${receiverColor} 0%, ${shadeColor(receiverColor, -0.2)} 92%);
     }
 
     div[message][body][data-tooltip-position="right"] {
-        background: linear-gradient(135deg, ${senderColor} 0%, ${shadeColor(senderColor,  -0.3)} 92%);
+        background: linear-gradient(135deg, ${senderColor} 0%, ${shadeColor(senderColor,  -0.2)} 92%);
         color: #333;
     }
 `;

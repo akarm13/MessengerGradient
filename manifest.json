@@ -10,7 +10,7 @@
     "content_scripts": [
       {
         "matches": ["<all_urls>"],
-        "js": ["libs/tinycolor.js", "content.js"],
+        "js": ["dist/app.js"],
         "run_at": "document_start"
       }
     ],
