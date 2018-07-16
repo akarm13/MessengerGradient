@@ -1,6 +1,5 @@
 import  '../../libs/jquery.min.js';
-
-let form = document.getElementById('gradientForm');
+import { generateGradient } from '../helpers';
 
 let senderGradient;
 let receiverGradient;
@@ -24,15 +23,12 @@ const onFormSubmit = (event) => {
 
 const onInputChanged = (event) => {
     if(event.target.id === 'senderMessage') {
-        $('#senderPreview').css('background', `
-            linear-gradient(135deg, ${event.target.value} 0%, #534343 92%)
-        `);
+        $('#senderPreview').css('background', generateGradient(event.target.value));
     } else {
-        $('#receiverPreview').css('background', `
-            linear-gradient(135deg, ${event.target.value} 0%, #3ABCA3 92%)
-        `);
+        $('#receiverPreview').css('background', generateGradient(event.target.value));
     }
 }
 
-form.addEventListener('submit', onFormSubmit);
+
+$('#gradientForm').on('submit', onFormSubmit);
 $('.input').on('keyup', onInputChanged);
