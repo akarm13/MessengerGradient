@@ -14,3 +14,11 @@
 form {
     grid-row: 2/3;
 }
+
+.gradient-preview {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    background: linear-gradient(135deg, #989874 0%, #534343 92%);
+}
