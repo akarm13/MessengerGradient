@@ -10,7 +10,7 @@
     "content_scripts": [
       {
         "matches": ["<all_urls>"],
-        "js": ["libs/jquery.min.js", "dist/bundle.js"],
+        "js": ["libs/jquery.min.js", "dist/content.js"],
         "run_at": "document_start"
       }
     ],
