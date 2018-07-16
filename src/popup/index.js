@@ -23,9 +23,15 @@ const onFormSubmit = (event) => {
 }
 
 const onInputChanged = (event) => {
-    $('#senderPreview').css('background', `
-        linear-gradient(135deg, ${event.target.value} 0%, #534343 92%)
-    `);
+    if(event.target.id === 'senderMessage') {
+        $('#senderPreview').css('background', `
+            linear-gradient(135deg, ${event.target.value} 0%, #534343 92%)
+        `);
+    } else {
+        $('#receiverPreview').css('background', `
+            linear-gradient(135deg, ${event.target.value} 0%, #3ABCA3 92%)
+        `);
+    }
 }
 
 form.addEventListener('submit', onFormSubmit);
