@@ -21,5 +21,8 @@ const onFormSubmit = (event) => {
     event.preventDefault();
 }
 
+const onInputChanged = (event) => {
+
+}
 
 form.addEventListener('submit', onFormSubmit);

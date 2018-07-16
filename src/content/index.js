@@ -1,4 +1,4 @@
-import shadeColor from './helpers';
+import shadeColor from '../helpers';
 
 let senderMessagesEl;
 let receiverMessagesEl;
