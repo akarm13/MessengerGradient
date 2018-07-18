@@ -18,6 +18,9 @@ const onFormSubmit = (event) => {
       });
     });
 
+    localStorage.setItem('senderColor', senderGradient)
+    localStorage.setItem('receiverColor', receiverGradienti);
+
     event.preventDefault();
 }
 
