@@ -4,6 +4,9 @@ import { generateGradient } from '../helpers';
 let senderGradient;
 let receiverGradient;
 
+$('#senderMessage').val(localStorage.getItem('senderColor'));
+$('#receiverMessage').val(localStorage.getItem('receiverColor'));
+
 const onFormSubmit = (event) => {
     senderGradient = event.target.elements[0].value;
     receiverGradient = event.target.elements[1].value;
@@ -19,7 +22,7 @@ const onFormSubmit = (event) => {
     });
 
     localStorage.setItem('senderColor', senderGradient)
-    localStorage.setItem('receiverColor', receiverGradienti);
+    localStorage.setItem('receiverColor', receiverGradient);
 
     event.preventDefault();
 }
