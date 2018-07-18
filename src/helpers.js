@@ -11,6 +11,7 @@ export default function shadeColor(color, percent) {
 
 
 /**
+ * Generates a gradient using a color then darkens the same color by a certain percent to make a one color gradient.
  * 
  * @param {string} color A hexadecimal value for the first color of the gradient
  */
