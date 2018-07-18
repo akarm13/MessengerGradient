@@ -1,4 +1,4 @@
-import { generateGradient } from '../helpers';
+import { generateGradient, injectStyles } from '../helpers';
 
 let senderMessagesEl;
 let receiverMessagesEl;
@@ -6,6 +6,8 @@ let receiverMessagesEl;
 let senderColor = localStorage.getItem('senderColor')
 let receiverColor = localStorage.getItem('receiverColor');
 
+
+// If the user emptied the local storage, or it was the first time.
 if ( senderColor === null &&
      receiverColor === null) {
     localStorage.setItem('senderColor', 'red')
@@ -16,19 +18,17 @@ if ( senderColor === null &&
 
 // This
 
-var customStyles = document.createElement('style');
-customStyles.innerHTML = `
-    div[message][body][data-tooltip-position="left"] {
-        background: ${ generateGradient(receiverColor) };
-    }
+const styles = `div[message][body][data-tooltip-position="left"] {
+    background: ${ generateGradient(receiverColor) };
+    color: #FDFDFD;
+}
 
-    div[message][body][data-tooltip-position="right"] {
-        background: ${ generateGradient(senderColor) };
-        color: #333;
-    }
-`;
-document.documentElement.insertBefore(customStyles, null);
+div[message][body][data-tooltip-position="right"] {
+    background: ${ generateGradient(senderColor) };
+    color: #FDFDFD;
+}`;
 
+injectStyles(styles);
 
 chrome.runtime.onMessage.addListener((message, sender, response) => {
     if (message.title === 'formSubmitted') {
@@ -37,8 +37,7 @@ chrome.runtime.onMessage.addListener((message, sender, response) => {
         message.data.receiverGradient.length === 0) {
             alert("It's empty!")
         } else {
-            var customStyles = document.createElement('style');
-            customStyles.innerHTML = `
+            injectStyles(`
                 div[message][body][data-tooltip-position="left"] {
                         background: ${ generateGradient(message.data.receiverGradient) }
                     }
@@ -46,8 +45,7 @@ chrome.runtime.onMessage.addListener((message, sender, response) => {
                 div[message][body][data-tooltip-position="right"] {
                         background: ${ generateGradient(message.data.senderGradient) }
                     }
-            `;
-            document.documentElement.insertBefore(customStyles, null);
+            `);
             localStorage.setItem('senderColor', message.data.senderGradient);
             localStorage.setItem('receiverColor', message.data.receiverGradient);
         }
