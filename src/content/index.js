@@ -1,4 +1,4 @@
-import shadeColor from '../helpers';
+import { generateGradient } from '../helpers';
 
 let senderMessagesEl;
 let receiverMessagesEl;
@@ -19,11 +19,11 @@ if ( senderColor === null &&
 var customStyles = document.createElement('style');
 customStyles.innerHTML = `
     div[message][body][data-tooltip-position="left"] {
-        background: linear-gradient(135deg, ${receiverColor} 0%, ${shadeColor(receiverColor, -0.2)} 92%);
+        background: ${ generateGradient(receiverColor) };
     }
 
     div[message][body][data-tooltip-position="right"] {
-        background: linear-gradient(135deg, ${senderColor} 0%, ${shadeColor(senderColor,  -0.2)} 92%);
+        background: ${ generateGradient(senderColor) };
         color: #333;
     }
 `;
@@ -35,8 +35,19 @@ chrome.runtime.onMessage.addListener((message, sender, response) => {
         // Skip validation for now.
         if(message.data.senderGradient.length === 0 &&
         message.data.receiverGradient.length === 0) {
-            alert("it's empty!");
+            alert("It's empty!")
         } else {
+            var customStyles = document.createElement('style');
+            customStyles.innerHTML = `
+                div[message][body][data-tooltip-position="left"] {
+                        background: ${ generateGradient(message.data.receiverGradient) }
+                    }
+        
+                div[message][body][data-tooltip-position="right"] {
+                        background: ${ generateGradient(message.data.senderGradient) }
+                    }
+            `;
+            document.documentElement.insertBefore(customStyles, null);
             localStorage.setItem('senderColor', message.data.senderGradient);
             localStorage.setItem('receiverColor', message.data.receiverGradient);
         }
