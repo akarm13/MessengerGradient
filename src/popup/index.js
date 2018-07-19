@@ -12,6 +12,9 @@ const onFormSubmit = (event) => {
     receiverGradient = event.target.elements[1].value;
 
 
+    localStorage.setItem('senderColor', senderGradient)
+    localStorage.setItem('receiverColor', receiverGradient);
+    
     chrome.tabs.query({}, tabs => {
         tabs.forEach(tab => {
         chrome.tabs.sendMessage(tab.id, {title: 'formSubmitted', data: {
@@ -20,9 +23,6 @@ const onFormSubmit = (event) => {
         }});
       });
     });
-
-    localStorage.setItem('senderColor', senderGradient)
-    localStorage.setItem('receiverColor', receiverGradient);
 
     event.preventDefault();
 }
