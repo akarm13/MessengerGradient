@@ -15,7 +15,7 @@ const onFormSubmit = (event) => {
     receiverGradient = event.target.elements[1].value;
 
 
-    localStorage.setItem('senderColor', senderGradient)
+    localStorage.setItem('senderColor', senderGradient);
     localStorage.setItem('receiverColor', receiverGradient);
 
     chrome.tabs.query({}, tabs => {
