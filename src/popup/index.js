@@ -7,6 +7,9 @@ let receiverGradient;
 $('#senderMessage').val(localStorage.getItem('senderColor'));
 $('#receiverMessage').val(localStorage.getItem('receiverColor'));
 
+$('#senderPreview').css('background', generateGradient(localStorage.getItem('senderColor')));
+$('#receiverPreview').css('background', generateGradient(localStorage.getItem('receiverColor')));
+
 const onFormSubmit = (event) => {
     senderGradient = event.target.elements[0].value;
     receiverGradient = event.target.elements[1].value;
@@ -14,7 +17,7 @@ const onFormSubmit = (event) => {
 
     localStorage.setItem('senderColor', senderGradient)
     localStorage.setItem('receiverColor', receiverGradient);
-    
+
     chrome.tabs.query({}, tabs => {
         tabs.forEach(tab => {
         chrome.tabs.sendMessage(tab.id, {title: 'formSubmitted', data: {
