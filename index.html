@@ -8,22 +8,33 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="container">
-    <h2 class="title">Pick your gradient!</h2>
-    <form action="#" id="gradientForm">
-        <div id="senderGradientContainer">
-            <label for="senderMessage">Your messages gradient:</label>
-            <input class="input" type="text" id="senderMessage" placeholder="#123456" autocomplete="off">
-            <span class="gradient-preview" id="senderPreview"></span>
-        </div>
-        <div id="receiverGradientContainer">
-            <label for="receiverMessage">Receiver messages gradient:</label>
-            <input  class="input" type="text" id="receiverMessage" placeholder="#123456" autocomplete="off">
-            <div class="gradient-preview" id="receiverPreview"></div>
-        </div>
-        <button type="submit" id="changeBtn">Change</button>
-    </form>
-
+<body>
+    <div class="container">
+        <h1 class="title">Pick your gradient</h2>
+        <form id="gradient-picker" action="#" autocomplete="off">
+            <div class="input-group">
+                <span class="input-title">Your messages gradient: </span>
+                
+                <label for="firstYColor" id="firstYLabel">First color: </label>
+                <input type="text" id="firstYColor">
+                <label for="secondYColor" id="secondYLabel">Second color: </label>
+                <input type="text" id="secondYColor">
+            </div>    
+            <div class="input-group">
+                    <span class="input-title">Their messages gradient: </span>
+  
+                    <label for="firstTColor" id="firstTLabel">First color: </label>
+                    <input type="text" id="firstTColor">
+                    <label for="secondYColor" id="secondTLabel">Second color: </label>
+                    <input type="text" id="secondTColor">
+            </div>
+            <div class="gradient-preview">
+                    <div id="yGradientPreview">Your messages</div>
+                    <div id="tGradientPreview">Their messages</div>
+            </div>    
+            <button id="changeBtn" type="submit">Change</button>
+        </form>
+    </div>
     <script src="dist/popup.js"></script>
 </body>
 </html>
