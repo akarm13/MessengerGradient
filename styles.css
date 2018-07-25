@@ -155,11 +155,3 @@ body {
     border-radius: 5px; 
     text-align: center;
 }
-
-#yGradientPreview {
-    background: linear-gradient(to right, #000167 0%,#11aabb 100%);    
-}
-
-#tGradientPreview {
-    background: linear-gradient(to right, #9911AA 40%, #005767 100%);
-}
