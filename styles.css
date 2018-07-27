@@ -89,7 +89,7 @@ body {
     position: absolute;
 }
 
-.input-group input {
+.input {
     width: 88px;
     margin: 16px 10px;
     /* border: 1px solid #ECECEC; */
@@ -102,6 +102,8 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: #666666;
     transition: all 100ms linear;
+    border: 1px solid transparent;
+    border-radius: 2px;
 }
 
 .input-group label {
@@ -154,4 +156,8 @@ body {
     border: 1px solid #ECECEC;
     border-radius: 5px; 
     text-align: center;
+}
+.error {
+    border: 1px solid #cf1010;
+    color: red;
 }
