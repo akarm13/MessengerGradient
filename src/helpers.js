@@ -3,8 +3,9 @@
  * 
  * @param {string} color A hexadecimal value for the first color of the gradient
  */
-export function generateGradient(color) {
-    return `linear-gradient(135deg, ${color} 0%, ${shadeColor(color, -0.4)} 92%)`;
+export function generateGradient(string) {
+    let colors = JSON.parse(string);
+    return `linear-gradient(135deg, #${colors[0]} 0%, #${colors[1]} 130%)`;
 }
 
 /**
