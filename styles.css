@@ -161,3 +161,10 @@ body {
     border: 1px solid #E23636;
     color: #E23636;
 }
+
+
+#changeBtn:disabled {
+    background: #ad8cd3;
+    box-shadow: none;
+    color: hsl(265, 30%, 90%);
+}
