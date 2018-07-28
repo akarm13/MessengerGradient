@@ -57,21 +57,25 @@ function onInputChange(event) {
     // If they didn't enter a HEX value.
     if(!validate($(this))) {
         $('#changeBtn').attr('disabled', true);
-        $(this).removeClass('valid');
         $(this).addClass('error');
-
-        putinSto
     } else {
         $(this).removeClass('error');
-        $('#changeBtn').attr('disabled', false);
+        $('#changeBtn').removeAttr('disabled');
     }
 }
 
 function validate(input) {
     // RegEx pattern for Hex colors.
     const pattern = /^(([0-9a-fA-F]{2}){3}|([0-9a-fA-F]){3})$/
+    let empty = false;
 
-    if(pattern.test(input.val())) {
+    $('input').each(function() {
+        if($(this).val() === '') {
+            empty = true;
+        }
+    })
+
+    if(!empty && pattern.test(input.val())) {
         return true;
     } else {
         return false;
@@ -80,5 +84,3 @@ function validate(input) {
 
 $('#gradient-picker').on('submit', onFormSubmit);
 $('input').on('keyup', onInputChange);
-
-
