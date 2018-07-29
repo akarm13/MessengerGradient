@@ -61,9 +61,46 @@ function onInputChange(event) {
     } else {
         $(this).removeClass('error');
         $('#changeBtn').removeAttr('disabled');
+
+        console.log($(this).attr('id'));
+        previewGradient($(this));
     }
 }
 
+
+function previewGradient(input) {
+    let colors;
+    switch(input.attr('id')) {
+        case 'firstYColor':
+            colors = JSON.parse(localStorage.getItem('senderColors'));
+            colors[0] = input.val();
+            
+            colors = JSON.stringify(colors);
+            $('#yGradientPreview').css('background', generateGradient(colors));
+            break;
+        case 'secondYColor':
+            colors = JSON.parse(localStorage.getItem('senderColors'));
+            colors[1] = input.val();
+            
+            colors = JSON.stringify(colors);
+            $('#yGradientPreview').css('background', generateGradient(colors));
+            break;
+        case 'firstTColor':
+            colors = JSON.parse(localStorage.getItem('receiverColors'));
+            colors[0] = input.val();
+            
+            colors = JSON.stringify(colors);
+            $('#tGradientPreview').css('background', generateGradient(colors));
+            break;
+        case 'secondTColor':
+            colors = JSON.parse(localStorage.getItem('receiverColors'));
+            colors[1] = input.val();
+            
+            colors = JSON.stringify(colors);
+            $('#tGradientPreview').css('background', generateGradient(colors));
+        break;
+    }
+}
 function validate(input) {
     // RegEx pattern for Hex colors.
     const pattern = /^(([0-9a-fA-F]{2}){3}|([0-9a-fA-F]){3})$/
