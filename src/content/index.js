@@ -16,7 +16,7 @@ chrome.runtime.onMessage.addListener((message, sender, response) => {
         setGradient('sender', message.data.senderColors);
         setGradient('receiver', message.data.receiverColors);
         localStorage.setItem('senderColors', message.data.senderColors);
-        localStorage.setItem('receiverColor', message.data.receiverColors);
+        localStorage.setItem('receiverColors', message.data.receiverColors);
     }
 });
 
@@ -26,7 +26,7 @@ function setGradient(userType, colors) {
         styles = `
             div[message][body][data-tooltip-position="right"] {
                 background: ${ generateGradient(colors) };
-                color: #FDFDFD;
+                color: #DFDFDF;
             };
         `;
         injectStyles(styles);
@@ -34,7 +34,7 @@ function setGradient(userType, colors) {
         styles = `
             div[message][body][data-tooltip-position="left"] {
                 background: ${ generateGradient(colors) };
-                color: #FDFDFD;
+                color: #DFDFDF;
             };
         `;
         injectStyles(styles);
