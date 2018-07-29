@@ -165,6 +165,5 @@ body {
 
 #changeBtn:disabled {
     background: #ad8cd3;
-    box-shadow: none;
     color: hsl(265, 30%, 90%);
 }

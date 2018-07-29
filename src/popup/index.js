@@ -35,7 +35,6 @@ const onFormSubmit = (event) => {
      senderColors = JSON.stringify([firstYColor, secondYColor]);
      receiverColors = JSON.stringify([firstTColor, secondTColor]);
 
-
      // Ex: "[131313, 414141]";
      localStorage.setItem('senderColors', senderColors);
      localStorage.setItem('receiverColors', receiverColors);
@@ -74,7 +73,7 @@ function previewGradient(input) {
         case 'firstYColor':
             colors = JSON.parse(localStorage.getItem('senderColors'));
             colors[0] = input.val();
-            
+            // colors = getColors('firstYColor')
             colors = JSON.stringify(colors);
             $('#yGradientPreview').css('background', generateGradient(colors));
             break;
