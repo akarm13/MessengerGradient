@@ -145,6 +145,7 @@ body {
 .gradient-preview {
     grid-row: 4;
     padding: 10px;
+    margin-right: 40px;
 }
 
 #yGradientPreview, #tGradientPreview {
