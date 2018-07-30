@@ -75,28 +75,36 @@ function previewGradient(input) {
             colors[0] = input.val();
             // colors = getColors('firstYColor')
             colors = JSON.stringify(colors);
-            $('#yGradientPreview').css('background', generateGradient(colors));
+            localStorage.setItem('senderColors', colors);
+
+            $('#yGradientPreview').css('background', generateGradient(localStorage.getItem('senderColors')));
             break;
         case 'secondYColor':
             colors = JSON.parse(localStorage.getItem('senderColors'));
             colors[1] = input.val();
             
             colors = JSON.stringify(colors);
-            $('#yGradientPreview').css('background', generateGradient(colors));
+            localStorage.setItem('senderColors', colors);
+
+            $('#yGradientPreview').css('background', generateGradient(localStorage.getItem('senderColors')));
             break;
         case 'firstTColor':
             colors = JSON.parse(localStorage.getItem('receiverColors'));
             colors[0] = input.val();
             
             colors = JSON.stringify(colors);
-            $('#tGradientPreview').css('background', generateGradient(colors));
+            localStorage.setItem('receiverColors', colors);
+
+            $('#tGradientPreview').css('background', generateGradient(localStorage.getItem('receiverColors')));
             break;
         case 'secondTColor':
             colors = JSON.parse(localStorage.getItem('receiverColors'));
             colors[1] = input.val();
             
             colors = JSON.stringify(colors);
-            $('#tGradientPreview').css('background', generateGradient(colors));
+
+            localStorage.setItem('receiverColors', colors);
+            $('#tGradientPreview').css('background', generateGradient(localStorage.getItem('receiverColors')));
         break;
     }
 }
